@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  nginx:
+    container_name: "nginx_master"
+    hostname: nginx
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./conf/weather.conf:/etc/nginx/conf.d/site.conf
+    networks:
+      - internal
+      - public
+
+networks:
+  internal: {}
+  public:
+    external: true
