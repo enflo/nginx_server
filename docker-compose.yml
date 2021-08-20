@@ -10,7 +10,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./conf/weather.conf:/etc/nginx/conf.d/site.conf
+      - ./conf/*:/etc/nginx/conf.d/*
     networks:
       - internal
       - public
